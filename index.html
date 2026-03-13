@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>piushrii</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#f5f5f5;
+    text-align:center;
+    padding-top:80px;
+}
+
+h1{
+    font-size:40px;
+    margin-bottom:40px;
+}
+
+button{
+    padding:15px 30px;
+    font-size:18px;
+    margin:10px;
+    cursor:pointer;
+}
+
+input{
+    padding:12px;
+    font-size:16px;
+}
+
+.container{
+    margin-top:40px;
+}
+
+.codeBox{
+    margin-top:30px;
+    font-size:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>piushrii</h1>
+
+<div class="container">
+
+<button onclick="createRoom()">CREATE</button>
+
+<br><br>
+
+<input id="roomInput" placeholder="Enter Code">
+
+<button onclick="joinRoom()">JOIN</button>
+
+</div>
+
+<div class="codeBox" id="codeDisplay"></div>
+
+<script>
+
+function generateCode(){
+    return Math.random().toString(36).substring(2,7);
+}
+
+function createRoom(){
+
+    let code = generateCode();
+
+    document.getElementById("codeDisplay").innerHTML =
+    "Share this code: <b>" + code + "</b>";
+
+    setTimeout(()=>{
+        window.location.href = "room.html?room=" + code;
+    },2000)
+
+}
+
+function joinRoom(){
+
+    let code = document.getElementById("roomInput").value;
+
+    if(code === ""){
+        alert("Enter a room code");
+        return;
+    }
+
+    window.location.href = "room.html?room=" + code;
+
+}
+
+</script>
+
+</body>
+</html>
