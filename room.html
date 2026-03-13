@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>piushrii room</title>
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+padding-top:120px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1 id="roomTitle"></h1>
+
+<h2>Hello World 🌍</h2>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const room = params.get("room");
+
+document.getElementById("roomTitle").innerText =
+"Connected in room: " + room;
+
+</script>
+
+</body>
+</html>
